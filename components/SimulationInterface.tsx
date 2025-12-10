@@ -3,8 +3,8 @@ import gsap from 'gsap';
 import { GoogleGenAI } from '@google/genai';
 
 // Icons
-const IconTerminal = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>;
-const IconEye = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>;
+const IconTerminal = () => <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>;
+const IconEye = () => <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>;
 
 export const SimulationInterface: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'visual' | 'terminal'>('terminal');
@@ -13,21 +13,27 @@ export const SimulationInterface: React.FC = () => {
     <div className="w-full h-full p-4 md:p-10 flex flex-col z-20">
       <header className="flex justify-between items-end border-b border-green-800 pb-4 mb-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-[0.2em] text-green-500 animate-pulse">CONSTRUCT v2.1</h1>
+          <h1 className="text-2xl md:text-3xl font-bold tracking-[0.2em] text-green-500 animate-pulse">CONSTRUCT v2.1</h1>
           <p className="text-xs text-green-800 mt-1">OPERATOR: UNKNOWN // SIGNAL: ENCRYPTED</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-2 md:gap-4">
           <button 
             onClick={() => setActiveTab('terminal')}
-            className={`px-4 py-2 border ${activeTab === 'terminal' ? 'border-green-500 bg-green-900/30' : 'border-green-900 text-green-800'} hover:border-green-400 transition-all flex items-center gap-2`}
+            className={`text-xs md:text-base px-1.5 md:px-4 py-2 border ${activeTab === 'terminal' ? 'border-green-500 bg-green-900/30' : 'border-green-900 text-green-800'} hover:border-green-400 transition-all flex items-center gap-1 md:gap-2`}
           >
-            <IconTerminal /> TERMINAL
+            <div className="md:w-6 md:h-6 w-4 h-4">
+            <IconTerminal />
+            </div>
+             TERMINAL
           </button>
           <button 
              onClick={() => setActiveTab('visual')}
-             className={`px-4 py-2 border ${activeTab === 'visual' ? 'border-green-500 bg-green-900/30' : 'border-green-900 text-green-800'} hover:border-green-400 transition-all flex items-center gap-2`}
+             className={`text-xs md:text-base px-1.5 md:px-4 py-2 border ${activeTab === 'visual' ? 'border-green-500 bg-green-900/30' : 'border-green-900 text-green-800'} hover:border-green-400 transition-all flex items-center gap-1 md:gap-2`}
           >
-            <IconEye /> VISUALIZER
+            <div className="md:w-6 md:h-6 w-4 h-4">
+              <IconEye />
+            </div>
+            VISUALIZER
           </button>
         </div>
       </header>
